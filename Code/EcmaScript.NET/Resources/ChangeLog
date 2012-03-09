@@ -1,0 +1,35 @@
+2007-01-01	Christian Birkl <Christian.Birkl at gmail.com>
+
+	* Added 'it' object
+	* typeof /x/ must return object, not function	
+	
+2006-12-30	Christian Birkl <Christian.Birkl at gmail.com>
+
+	* Added Helpers.StackOverflowVerifier to prevent StackOverflowExceptions
+	  which aren't cachable in .NET 2.0	
+	
+2006-12-30	Christian Birkl <Christian.Birkl at gmail.com>
+
+	* Added "gc" function to NativeGlobalObject
+	
+	* Duplicate regexp quantifiers now raise a SyntaxError (e.g. /x{1}{1}/)
+	
+	* Ported bugfix for https://bugzilla.mozilla.org/show_bug.cgi?id=289628
+	
+	* Fixed some OutOfMemoryExceptions in Array.concat/push/...
+	  by adding OutOfRange checks.
+	  
+2006-12-29	Christian Birkl <Christian.Birkl at gmail.com>
+
+	* First public release (based partly on Rhino 1.6R5)
+	
+	* Major Changes are:
+	
+		- Removed support for compiling javascript sources
+		- Removed LiveConnect and replaced it with a new .NET layer 
+		  (See EcmaScript.NET.Types.Cli)
+		- Rewrote E4X Support completely since it was based on
+		  javax.beans.* framework which has no counterpart in .NET.		
+		- Added support JavaScript 1.5 getter and setter
+		- .NET'ished some bits here and there (e.g. refactoring methods
+		  into properties and events)
