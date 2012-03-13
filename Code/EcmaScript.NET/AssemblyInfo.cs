@@ -16,9 +16,10 @@ using System.Runtime.CompilerServices;
 using System.Security;
 
 [assembly: AssemblyTitle("EcmaScript.NET")]
-[assembly: AssemblyVersion("0.1.1")]
+[assembly: AssemblyVersion("1.0.1.0")]
 
 [assembly: AssemblyDescriptionAttribute("Modified version of the EcmaScript.NET assembly.")]
 
 [assembly: CLSCompliant(true)]
 [assembly: AllowPartiallyTrustedCallers]
+[assembly: AssemblyFileVersionAttribute("1.0.1.0")]
