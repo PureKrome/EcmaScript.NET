@@ -17,6 +17,8 @@ using System.Security;
 
 [assembly: AssemblyTitle("EcmaScript.NET")]
 [assembly: AssemblyVersion("1.0.1.0")]
+[assembly: AssemblyCompany("PureKrome")]
+[assembly: AssemblyProduct("EcmaScript.NET")]
 
 [assembly: AssemblyDescriptionAttribute("Modified version of the EcmaScript.NET assembly.")]
 
