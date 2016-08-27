@@ -39,7 +39,7 @@ namespace EcmaScript.NET.Types.Cli
         {
             try {
                 ImportAssembly (
-                    this.ParentScope, Assembly.LoadWithPartialName (assembly));
+                    this.ParentScope, Assembly.Load (assembly));
             }
             catch (FileNotFoundException e) {
                 throw ScriptRuntime.ConstructError ("EvalError", "Failed to load assembly: " + e.Message);
