@@ -45,6 +45,14 @@ namespace EcmaScript.NET
             }
 
         }
+
+        internal string TokenString
+        {
+            get
+            {
+                return tokenstr;
+            }
+        }
         internal double Number
         {
             get
@@ -183,6 +191,8 @@ namespace EcmaScript.NET
                         ungetChar(c);
 
                         string str = StringFromBuffer;
+                        this.tokenstr = str;
+
                         if (!containsEscape)
                         {
                             // OPT we shouldn't have to make a string (object!) to
@@ -1844,6 +1854,7 @@ namespace EcmaScript.NET
         // string is found.  Fosters one class of error, but saves lots of
         // code.
         private string str = "";
+        private string tokenstr = "";
         private double dNumber;
 
 

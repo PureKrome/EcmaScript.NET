@@ -1961,7 +1961,14 @@ namespace EcmaScript.NET
 
 
                                 default:
-                                    ReportError("msg.no.name.after.dot");
+                                    s = ts.TokenString;
+                                    if (s.Length != 0)
+                                    {
+                                        decompiler.AddName(s);
+                                        pn = propertyName(pn, s, memberTypeFlags);
+                                        AddWarning("msg.reserved.keyword", s);
+                                    } else
+                                        ReportError("msg.no.name.after.dot");
                                     break;
 
                             }
