@@ -13,6 +13,7 @@
 
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 using EcmaScript.NET.Collections;
 
@@ -40,6 +41,8 @@ namespace EcmaScript.NET
         internal const int CLEAR_TI_MASK = 0xFFFF;
         internal const int TI_AFTER_EOL = 1 << 16;
         internal const int TI_CHECK_LABEL = 1 << 17; // indicates to check for label
+
+        internal readonly Regex SIMPLE_IDENTIFIER_NAME_PATTERN = new Regex("^[a-zA-Z_][a-zA-Z0-9_]*$", RegexOptions.Compiled);
 
         internal CompilerEnvirons compilerEnv;
         ErrorReporter errorReporter;
@@ -1913,6 +1916,7 @@ namespace EcmaScript.NET
                         {
                             int memberTypeFlags;
                             string s;
+                            Match match;
 
                             consumeToken();
                             decompiler.AddToken(tt);
@@ -1961,7 +1965,15 @@ namespace EcmaScript.NET
 
 
                                 default:
-                                    ReportError("msg.no.name.after.dot");
+                                    s = ts.TokenString;
+                                    match = SIMPLE_IDENTIFIER_NAME_PATTERN.Match(s);
+                                    if (match.Success)
+                                    {
+                                        decompiler.AddName(s);
+                                        pn = propertyName(pn, s, memberTypeFlags);
+                                        AddWarning("msg.reserved.keyword", s);
+                                    } else
+                                        ReportError("msg.no.name.after.dot");
                                     break;
 
                             }
