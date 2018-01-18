@@ -14,7 +14,7 @@ environment:
 # Override the 'version' if this is a GH-tag-commit -or- this is a custom branch (i.e not 'master').
 init:
   - ps: |
-      if ($env:APPVEYOR_REPO_TAG -eq $TRUE -and $env:APPVEYOR_REPO_BRANCH -eq 'master')
+      if ($env:APPVEYOR_REPO_TAG -eq $TRUE)
       { 
           Write-Host " !! Commit is Tagged and branch is 'master' - forcing build version to tag-value." -ForegroundColor Red; 
           Update-AppveyorBuild -Version "$env:APPVEYOR_REPO_TAG_NAME"
@@ -52,9 +52,8 @@ deploy:
     api_key:
       secure: jfcUvHZhgnUboplqTBDWr8mG5PIlrgBv5TA2fhhop4ZSiDxskyy+RtYyeHoduJFR
     skip_symbols: true
-    artifact: NuGetPackage
+    artifact: packaged-nugets
     on:
-      branch: master
       appveyor_repo_tag: true
 
 cache:
