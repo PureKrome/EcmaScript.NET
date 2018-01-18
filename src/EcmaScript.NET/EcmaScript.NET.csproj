@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <Version>0.0.0</Version>
+    <Authors>Pure Krome</Authors>
+    <Company>World Domination Technologies</Company>
+    <Description>This is a custom modified version of the EcmaScript code, mainly created for YUICompressor.NET.</Description>
+    <Copyright>2011</Copyright>
+    <PackageLicenseUrl>https://github.com/PureKrome/EcmaScript.NET/blob/master/License.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/PureKrome/EcmaScript.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PureKrome/EcmaScript.NET</RepositoryUrl>
+    <RepositoryType>.net c#</RepositoryType>
+    <PackageTags>ecmascript, javascript</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
