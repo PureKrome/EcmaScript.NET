@@ -45,6 +45,15 @@ namespace EcmaScript.NET
             }
 
         }
+
+        internal string TokenString
+                {
+                        get
+                            {
+                                return tokenstr;
+                            }
+                    }
+
         internal double Number
         {
             get
@@ -183,6 +192,8 @@ namespace EcmaScript.NET
                         ungetChar(c);
 
                         string str = StringFromBuffer;
+                        this.tokenstr = str;
+                        
                         if (!containsEscape)
                         {
                             // OPT we shouldn't have to make a string (object!) to
@@ -1845,7 +1856,7 @@ namespace EcmaScript.NET
         // code.
         private string str = "";
         private double dNumber;
-
+        private string tokenstr = "";
 
         private char[] stringBuffer = new char[128];
         private int stringBufferTop;
